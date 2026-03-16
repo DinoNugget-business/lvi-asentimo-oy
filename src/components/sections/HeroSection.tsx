@@ -2,26 +2,16 @@
 
 import { Phone, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { CONTACT } from "@/lib/constants";
-import { type MouseEvent } from "react";
-
-function addRipple(e: MouseEvent<HTMLElement>) {
-  const el = e.currentTarget;
-  const rect = el.getBoundingClientRect();
-  const ripple = document.createElement("span");
-  ripple.className = "ripple-circle";
-  ripple.style.left = `${e.clientX - rect.left - 10}px`;
-  ripple.style.top = `${e.clientY - rect.top - 10}px`;
-  el.appendChild(ripple);
-  ripple.addEventListener("animationend", () => ripple.remove());
-}
+import { addRipple } from "@/lib/ripple";
 
 export default function HeroSection() {
   const t = useTranslations("hero");
 
   return (
     <section
-      className="relative min-h-screen flex items-end overflow-hidden"
+      className="relative hero-min-h flex items-end overflow-hidden"
       style={{
         background: `
           radial-gradient(ellipse at 20% 80%, rgba(200, 117, 51, 0.12) 0%, transparent 55%),
@@ -62,19 +52,19 @@ export default function HeroSection() {
           <a
             href={CONTACT.phoneHref}
             onClick={addRipple}
-            className="btn-ripple btn-shimmer inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-md font-semibold text-dark bg-copper transition-all hover:bg-copper-dark text-sm tracking-wide font-body"
+            className="btn-ripple btn-shimmer inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-md font-semibold text-dark bg-copper transition-colors hover:bg-copper-dark text-sm tracking-wide font-body"
           >
             <Phone className="w-4 h-4" />
             {t("callUs")} {CONTACT.phone}
           </a>
-          <a
-            href="/fi/yhteystiedot"
+          <Link
+            href="/yhteystiedot"
             onClick={addRipple}
-            className="btn-ripple inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-md font-semibold text-text-light border border-dark-border transition-all hover:border-copper/40 hover:text-copper text-sm tracking-wide font-body"
+            className="btn-ripple inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-md font-semibold text-text-light border border-dark-border transition-colors hover:border-copper/40 hover:text-copper text-sm tracking-wide font-body"
           >
             {t("requestQuote")}
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
 
         {/* Emergency indicator */}

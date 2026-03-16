@@ -128,6 +128,7 @@
     "submit": "Lähetä viesti",
     "successTitle": "Viesti lähetetty!",
     "successText": "Kiitos yhteydenotostasi. Palaamme asiaan mahdollisimman pian.",
+    "requiredField": "Pakollinen kenttä",
     "creditNote": "Laskutusasiakassuhteessa tarvitsemme täydellisen henkilö- tai Y-tunnuksen.",
     "invoicing": "Laskutustiedot",
     "invoicingText": "Vastaanotamme verkkolaskuja Maventa-operaattorin kautta. Verkkolaskujen OVT-tunnus on 003716525055.",

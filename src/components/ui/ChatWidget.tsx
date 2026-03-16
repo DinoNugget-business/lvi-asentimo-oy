@@ -137,7 +137,7 @@ export default function ChatWidget() {
       {!isOpen && (
         <button
           onClick={handleOpen}
-          className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-copper hover:bg-copper-dark text-dark flex items-center justify-center shadow-lg transition-all hover:scale-105 active:scale-95"
+          className="chat-launcher-safe fixed z-50 w-14 h-14 rounded-full bg-copper hover:bg-copper-dark text-dark flex items-center justify-center shadow-lg transition-colors hover:scale-105 active:scale-95"
           aria-label="Avaa chat"
         >
           <MessageCircle className="w-6 h-6" />
@@ -147,8 +147,9 @@ export default function ChatWidget() {
       {/* Chat panel */}
       {isOpen && (
         <div
-          className="chat-panel-enter fixed bottom-5 right-5 z-50 w-[380px] h-[520px] max-sm:inset-0 max-sm:w-full max-sm:h-full max-sm:bottom-0 max-sm:right-0 flex flex-col rounded-xl max-sm:rounded-none overflow-hidden shadow-2xl border border-dark-border"
+          className="chat-panel-enter chat-panel-safe fixed z-50 w-[380px] h-[520px] max-sm:inset-0 max-sm:w-full max-sm:h-full max-sm:bottom-0 max-sm:right-0 flex flex-col rounded-xl max-sm:rounded-none overflow-hidden shadow-2xl border border-dark-border"
           role="dialog"
+          aria-modal="true"
           aria-label="Chat — LVI Asentimo"
         >
           {/* Header */}
@@ -169,7 +170,7 @@ export default function ChatWidget() {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="w-8 h-8 flex items-center justify-center rounded-md text-text-light-muted hover:text-text-light hover:bg-dark-surface transition-colors"
+              className="w-11 h-11 flex items-center justify-center rounded-md text-text-light-muted hover:text-text-light hover:bg-dark-surface transition-colors"
               aria-label="Sulje chat"
             >
               <X className="w-5 h-5" />
@@ -247,13 +248,13 @@ export default function ChatWidget() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Kirjoita viesti..."
-              className="flex-1 text-sm py-2 px-3 rounded-lg bg-warm-white border border-surface-dark outline-none focus:border-copper transition-colors font-body text-text placeholder:text-text-dim"
+              className="chat-input flex-1 py-2 px-3 rounded-lg bg-warm-white border border-surface-dark outline-none focus:border-copper transition-colors font-body text-text placeholder:text-text-dim"
               disabled={isTyping}
             />
             <button
               type="submit"
               disabled={!input.trim() || isTyping}
-              className="w-9 h-9 flex items-center justify-center rounded-lg bg-copper text-dark hover:bg-copper-dark disabled:opacity-40 disabled:cursor-not-allowed transition-colors shrink-0"
+              className="w-11 h-11 flex items-center justify-center rounded-lg bg-copper text-dark hover:bg-copper-dark disabled:opacity-40 disabled:cursor-not-allowed transition-colors shrink-0"
               aria-label="Lähetä"
             >
               <Send className="w-4 h-4" />

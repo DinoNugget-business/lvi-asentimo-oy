@@ -31,6 +31,8 @@ function FloatingField({
   touched,
   onChange,
   onBlur,
+  autoComplete,
+  errorText,
 }: {
   id: string;
   label: string;
@@ -40,6 +42,8 @@ function FloatingField({
   touched: boolean;
   onChange: (v: string) => void;
   onBlur: () => void;
+  autoComplete?: string;
+  errorText?: string;
 }) {
   const [focused, setFocused] = useState(false);
   const isActive = focused || value.length > 0;
@@ -57,6 +61,7 @@ function FloatingField({
         onBlur={() => { setFocused(false); onBlur(); }}
         className={`form-input ${showError ? "has-error" : ""}`}
         placeholder=" "
+        autoComplete={autoComplete}
       />
       <label
         htmlFor={id}
@@ -65,7 +70,7 @@ function FloatingField({
         {label}{required ? " *" : ""}
       </label>
       {showError && (
-        <p className="field-error">Pakollinen kenttä</p>
+        <p className="field-error">{errorText}</p>
       )}
     </div>
   );
@@ -137,6 +142,8 @@ export default function ContactForm() {
           touched={fields.name.touched}
           onChange={(v) => updateField("name", v)}
           onBlur={() => touchField("name")}
+          autoComplete="name"
+          errorText={t("requiredField")}
         />
         <FloatingField
           id="email"
@@ -147,6 +154,8 @@ export default function ContactForm() {
           touched={fields.email.touched}
           onChange={(v) => updateField("email", v)}
           onBlur={() => touchField("email")}
+          autoComplete="email"
+          errorText={t("requiredField")}
         />
       </div>
 
@@ -159,6 +168,7 @@ export default function ContactForm() {
           touched={fields.phone.touched}
           onChange={(v) => updateField("phone", v)}
           onBlur={() => touchField("phone")}
+          autoComplete="tel"
         />
         <FloatingField
           id="location"
@@ -177,6 +187,7 @@ export default function ContactForm() {
         touched={fields.address.touched}
         onChange={(v) => updateField("address", v)}
         onBlur={() => touchField("address")}
+        autoComplete="street-address"
       />
 
       {/* Textarea keeps static label — floating labels don't work well on multi-line */}
@@ -195,7 +206,7 @@ export default function ContactForm() {
           placeholder={t("messagePlaceholder")}
         />
         {fields.message.touched && !fields.message.value && (
-          <p className="field-error">Pakollinen kenttä</p>
+          <p className="field-error">{t("requiredField")}</p>
         )}
       </div>
 

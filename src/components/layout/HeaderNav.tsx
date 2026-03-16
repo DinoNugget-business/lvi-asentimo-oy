@@ -23,6 +23,44 @@ export default function HeaderNav() {
     return () => document.body.classList.remove("menu-open");
   }, [menuOpen]);
 
+  // Focus trap for mobile menu
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const nav = document.getElementById("mobile-nav");
+    if (!nav) return;
+
+    const focusable = nav.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled])'
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    function handleTab(e: globalThis.KeyboardEvent) {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        return;
+      }
+      if (e.key !== "Tab") return;
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    }
+
+    document.addEventListener("keydown", handleTab);
+    first?.focus();
+
+    return () => document.removeEventListener("keydown", handleTab);
+  }, [menuOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300 ${
@@ -59,7 +97,7 @@ export default function HeaderNav() {
           {/* Phone CTA — desktop */}
           <a
             href={CONTACT.phoneHref}
-            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-semibold bg-copper text-dark transition-all hover:bg-copper-dark"
+            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-semibold bg-copper text-dark transition-colors hover:bg-copper-dark"
           >
             <Phone className="w-3.5 h-3.5" />
             {CONTACT.phone}
@@ -68,7 +106,7 @@ export default function HeaderNav() {
           {/* Phone CTA — mobile */}
           <a
             href={CONTACT.phoneHref}
-            className="sm:hidden w-10 h-10 rounded-md flex items-center justify-center bg-copper/15 text-copper"
+            className="sm:hidden w-11 h-11 rounded-md flex items-center justify-center bg-copper/15 text-copper"
             aria-label={t("emergency")}
           >
             <Phone className="w-4 h-4" />
@@ -76,10 +114,11 @@ export default function HeaderNav() {
 
           {/* Hamburger */}
           <button
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-md text-copper transition-colors"
+            className="md:hidden w-11 h-11 flex items-center justify-center rounded-md text-copper transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
           >
             {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -88,7 +127,7 @@ export default function HeaderNav() {
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="md:hidden bg-dark border-t border-dark-border">
+        <div id="mobile-nav" className="md:hidden bg-dark border-t border-dark-border">
           <nav className="px-5 py-4 flex flex-col gap-1">
             {NAV_ITEMS.map((item, i) => (
               <Link

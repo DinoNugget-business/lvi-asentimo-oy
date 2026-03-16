@@ -13,7 +13,7 @@ import ChatWidget from "@/components/ui/ChatWidget";
 import "../globals.css";
 
 const barlowCondensed = Barlow_Condensed({
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
   variable: "--font-barlow",
   display: "swap",
@@ -124,10 +124,16 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
       </head>
       <body className="antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-copper focus:text-dark focus:font-semibold focus:rounded-md focus:text-sm"
+        >
+          Siirry pääsisältöön
+        </a>
         <NextIntlClientProvider messages={messages}>
           <ScrollProgress />
           <HeaderNav />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <ChatWidget />
         </NextIntlClientProvider>
       </body>

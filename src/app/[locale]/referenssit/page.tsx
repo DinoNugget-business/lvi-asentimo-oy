@@ -12,6 +12,7 @@ type FilterType = "all" | "linja" | "lampo" | "vesi" | "urakka";
 
 export default function ReferenssitPage() {
   const t = useTranslations("references");
+  const tp = useTranslations("referencesPage");
   const [filter, setFilter] = useState<FilterType>("all");
 
   const filters: { key: FilterType; label: string }[] = [
@@ -34,7 +35,7 @@ export default function ReferenssitPage() {
   return (
     <>
       <ScrollAnimator />
-      <PageHeader title={t("pageTitle")} subtitle={t("pageSubtitle")} />
+      <PageHeader title={tp("pageTitle")} subtitle={tp("pageSubtitle")} />
 
       <section className="bg-warm-white py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-5">
