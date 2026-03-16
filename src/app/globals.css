@@ -350,3 +350,128 @@ button:focus-visible {
   }
   .animate-on-scroll { opacity: 1; transform: none; }
 }
+
+/* ============================
+   FLOATING LABELS
+   ============================ */
+
+.floating-field { position: relative; }
+
+.floating-label {
+  position: absolute;
+  left: 16px; top: 12px;
+  font-size: 14px;
+  color: var(--color-text-dim);
+  pointer-events: none;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+              font-size 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.2s ease;
+  transform-origin: left top;
+}
+
+.floating-label.active {
+  transform: translateY(-20px);
+  font-size: 11px;
+  color: var(--color-copper);
+  font-weight: 600;
+}
+
+.floating-field .form-input {
+  padding: 18px 16px 8px;
+}
+
+/* ============================
+   FORM VALIDATION
+   ============================ */
+
+.form-input.has-error {
+  border-color: var(--color-emergency);
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.field-error {
+  color: var(--color-emergency);
+  font-size: 12px;
+  margin-top: 4px;
+  padding-left: 4px;
+  opacity: 0;
+  transform: translateY(-4px);
+  animation: fadeInUp 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ============================
+   BUTTON SPINNER
+   ============================ */
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.btn-spinner {
+  width: 18px; height: 18px;
+  border: 2px solid rgba(13,31,45,0.3);
+  border-top-color: var(--color-dark);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+.form-success-enter {
+  animation: fadeInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ============================
+   RIPPLE CLICK EFFECT
+   ============================ */
+
+@keyframes rippleExpand {
+  to { transform: scale(4); opacity: 0; }
+}
+
+.btn-ripple { position: relative; overflow: hidden; }
+
+.ripple-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  width: 20px; height: 20px;
+  transform: scale(0);
+  animation: rippleExpand 0.5s ease-out;
+  pointer-events: none;
+}
+
+/* ============================
+   CHAT WIDGET
+   ============================ */
+
+@keyframes chatSlideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes chatSlideDown {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(16px) scale(0.95); }
+}
+
+.chat-panel-enter { animation: chatSlideUp 0.25s ease-out both; }
+.chat-panel-exit { animation: chatSlideDown 0.2s ease-in both; }
+
+@keyframes chatMsgIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-msg-enter { animation: chatMsgIn 0.25s ease-out both; }
+
+@keyframes typingDot {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-4px); }
+}
+
+.typing-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--color-text-dim);
+  animation: typingDot 1.2s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.typing-dot:nth-child(3) { animation-delay: 0.3s; }

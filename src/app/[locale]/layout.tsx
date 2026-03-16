@@ -9,6 +9,7 @@ import { routing } from "@/i18n/routing";
 import { SITE, CONTACT, WEBSITE_URL } from "@/lib/constants";
 import HeaderNav from "@/components/layout/HeaderNav";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import ChatWidget from "@/components/ui/ChatWidget";
 import "../globals.css";
 
 const barlowCondensed = Barlow_Condensed({
@@ -127,6 +128,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <ScrollProgress />
           <HeaderNav />
           <main>{children}</main>
+          <ChatWidget />
         </NextIntlClientProvider>
       </body>
     </html>

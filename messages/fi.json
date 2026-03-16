@@ -182,5 +182,13 @@
     "title": "Sivua ei löytynyt",
     "description": "Etsimääsi sivua ei löytynyt. Tarkista osoite tai palaa etusivulle.",
     "backHome": "Takaisin etusivulle"
+  },
+  "chat": {
+    "title": "Asiakaspalvelu",
+    "welcome": "Hei! Olen Asentimon virtuaaliassistentti. Voin kertoa palveluistamme, hinnoistamme ja yhteystiedoistamme. Miten voin auttaa?",
+    "placeholder": "Kirjoita viesti...",
+    "send": "Lähetä",
+    "error": "Jokin meni pieleen. Kokeile uudelleen tai soita meille: 040 576 59 68",
+    "close": "Sulje"
   }
 }
