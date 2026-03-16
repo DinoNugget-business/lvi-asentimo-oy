@@ -1,26 +1,352 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ── Brand Colors — Dark industrial + warm copper ── */
+  --color-primary: #0D1F2D;
+  --color-primary-light: #162D3E;
+  --color-copper: #C87533;
+  --color-copper-dark: #A8612A;
+  --color-copper-light: #DDA058;
+  --color-copper-glow: rgba(200, 117, 51, 0.15);
+  --color-emergency: #DC3545;
+  --color-emergency-dark: #B82D3B;
+
+  /* ── Surfaces ── */
+  --color-dark: #0D1F2D;
+  --color-dark-deeper: #081018;
+  --color-dark-surface: #142838;
+  --color-dark-border: #1E3A4E;
+  --color-warm-white: #FAF7F2;
+  --color-bg-light: #F2EDE6;
+  --color-surface: #EBE4DA;
+  --color-surface-dark: #DDD4C8;
+
+  /* ── Text ── */
+  --color-text: #1A1F2E;
+  --color-text-muted: #5A6170;
+  --color-text-dim: #8A8F9A;
+  --color-text-light: #F0ECE4;
+  --color-text-light-muted: #8A9BB0;
+
+  /* ── Typography ── */
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-body: "DM Sans", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-warm-white);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  overflow-wrap: break-word;
+}
+
+/* ============================
+   GRAIN TEXTURE — subtle film noise
+   ============================ */
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+body.menu-open { overflow: hidden; }
+
+/* ============================
+   SECTION DIVIDERS
+   ============================ */
+
+.section-angle-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0 100%);
+}
+
+.section-angle-top {
+  clip-path: polygon(0 2vw, 100% 0, 100% 100%, 0 100%);
+  margin-top: -2vw;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================
+   ANIMATION KEYFRAMES
+   ============================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ============================
+   EMERGENCY PULSE
+   ============================ */
+
+@keyframes emergencyPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.3); }
+  50% { box-shadow: 0 0 0 6px rgba(220, 53, 69, 0); }
+}
+
+.emergency-pulse {
+  animation: emergencyPulse 2.5s ease-in-out infinite;
+}
+
+/* ============================
+   HERO LOAD SEQUENCE
+   ============================ */
+
+.hero-heading  { animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 150ms both; }
+.hero-subtext  { animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 350ms both; }
+.hero-ctas     { animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 550ms both; }
+.hero-emergency { animation: fadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) 700ms both; }
+
+/* ============================
+   TYPOGRAPHIC DRAMA
+   ============================ */
+
+h1, h2 { text-wrap: balance; }
+
+.hero-headline {
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+.hero-headline .thin {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.stat-glow {
+  background: linear-gradient(135deg, var(--color-copper), var(--color-copper-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================
+   SCROLL REVEAL
+   ============================ */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-on-scroll.anim-fadeLeft { transform: translateX(-28px); }
+.animate-on-scroll.anim-fadeRight { transform: translateX(28px); }
+.animate-on-scroll.anim-scaleIn { transform: scale(0.92); }
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+.stagger-children .animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
+.stagger-children .animate-on-scroll:nth-child(2) { transition-delay: 100ms; }
+.stagger-children .animate-on-scroll:nth-child(3) { transition-delay: 180ms; }
+.stagger-children .animate-on-scroll:nth-child(4) { transition-delay: 260ms; }
+.stagger-children .animate-on-scroll:nth-child(5) { transition-delay: 340ms; }
+.stagger-children .animate-on-scroll:nth-child(6) { transition-delay: 400ms; }
+
+/* ============================
+   INNER PAGE LOAD SEQUENCE
+   ============================ */
+
+.page-heading  { animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 200ms both; }
+.page-subtitle { animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 350ms both; }
+
+/* ============================
+   BUTTON SHIMMER
+   ============================ */
+
+.btn-shimmer {
+  background-image: linear-gradient(110deg, transparent 25%, rgba(255,255,255,0.12) 50%, transparent 75%);
+  background-size: 200% 100%;
+}
+.btn-shimmer:hover { animation: shimmer 1.5s ease-in-out; }
+
+/* ============================
+   SECTION LABEL — small caps
+   ============================ */
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-copper);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+/* ============================
+   SERVICE ROW LIST
+   ============================ */
+
+.service-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  transition: padding-left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-row:hover {
+  padding-left: 1rem;
+}
+
+.service-row-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--color-copper);
+  opacity: 0.15;
+  line-height: 1;
+  min-width: 3ch;
+  transition: opacity 0.3s ease;
+}
+
+.service-row:hover .service-row-number {
+  opacity: 1;
+}
+
+.service-row-arrow {
+  color: var(--color-copper);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.service-row:hover .service-row-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================
+   CARD VARIANTS
+   ============================ */
+
+.dark-card {
+  background: var(--color-dark-surface);
+  border: 1px solid var(--color-dark-border);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.dark-card:hover {
+  border-color: rgba(200, 117, 51, 0.3);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* ============================
+   NAV LINK UNDERLINE HOVER
+   ============================ */
+
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--color-copper);
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after { width: 100%; }
+
+/* ============================
+   ACCENT BAR
+   ============================ */
+
+.accent-bar {
+  position: relative;
+  padding-left: 20px;
+}
+.accent-bar::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 4px; height: 100%;
+  background: var(--color-copper);
+  border-radius: 2px;
+}
+
+/* ============================
+   MOBILE NAV STAGGER
+   ============================ */
+
+.mobile-nav-item {
+  animation: fadeInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ============================
+   FORM
+   ============================ */
+
+.form-input {
+  border: 1px solid var(--color-surface-dark);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text);
+  background: #FFFFFF;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
+  width: 100%;
+}
+.form-input:focus {
+  border-color: var(--color-copper);
+  box-shadow: 0 0 0 3px var(--color-copper-glow), 0 4px 12px rgba(200,117,51,0.08);
+  transform: translateY(-1px);
+}
+.form-input::placeholder { color: var(--color-text-dim); }
+
+/* ============================
+   FOCUS STATES
+   ============================ */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-copper);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.nav-link:focus-visible::after { width: 100%; }
+
+/* ============================
+   PREFERS REDUCED MOTION
+   ============================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-on-scroll { opacity: 1; transform: none; }
 }

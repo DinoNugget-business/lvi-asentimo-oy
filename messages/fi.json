@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "title": "LVI Asentimo Oy — Luotettavaa LVI-palvelua pääkaupunkiseudulla",
+    "description": "Täyden palvelun putkiliike pääkaupunkiseudulla vuodesta 2001. LVI-asennukset, putkiremontit, 24h hätähuolto ja saaristopalvelut."
+  },
+  "nav": {
+    "homeLink": "Etusivu",
+    "palvelumme": "Palvelumme",
+    "hinnasto": "Hinnasto",
+    "referenssit": "Referenssit",
+    "yhteistyokumppanit": "Kumppanit",
+    "yhteystiedot": "Yhteystiedot",
+    "emergency": "Hätähuolto 24/7"
+  },
+  "hero": {
+    "category": "Talotekniikkaa vuodesta 2001",
+    "headlineStrong": "Luotettavaa",
+    "headlineLight": "LVI-palvelua pääkaupunkiseudulla",
+    "tagline": "LVI Asentimo Oy on täyden palvelun putkiliike, joka hoitaa pienet huoltotyöt ja vaativat talotekniikan projektit ammattitaidolla ja täsmällisyydellä.",
+    "callUs": "Soita meille",
+    "requestQuote": "Kerro tarpeesi",
+    "statYears": "vuotta kokemusta",
+    "statRefs": "referenssikohdetta",
+    "statEmergency": "päivystys",
+    "emergency": "24h hätähuolto"
+  },
+  "trust": {
+    "years": "25+",
+    "yearsLabel": "Vuotta kokemusta",
+    "refs": "40+",
+    "refsLabel": "Referenssikohdetta",
+    "emergency": "24/7",
+    "emergencyLabel": "Hätäpäivystys",
+    "areas": "4",
+    "areasLabel": "Palvelualuetta"
+  },
+  "services": {
+    "sectionLabel": "Palvelumme",
+    "title": "Kattavat LVI-palvelut",
+    "subtitle": "Hoidamme kaikenlaiset LVI-alan työt ammattitaidolla — pienistä huoltotöistä vaativiin saneerausprojekteihin.",
+    "lvi": {
+      "title": "LVI-asennukset",
+      "description": "Kaikenlaiset LVI-alan asennukset ja korjaukset. Kilpailukykyiset tarjoukset ja joustava aikataulutus."
+    },
+    "putkiremontit": {
+      "title": "Putkiremontit",
+      "description": "Linjasaneeraukset, käyttövesiputkien uusinnat ja lämpöjohtosaneeraukset avaimet käteen -periaatteella."
+    },
+    "viemarikuvaukset": {
+      "title": "Viemärikuvaukset",
+      "description": "Viemäreiden kuntotarkastukset kameralla. Nopea ja tarkka diagnostiikka ongelmien paikantamiseen."
+    },
+    "huolto24h": {
+      "title": "24h Hätähuolto",
+      "description": "Ympärivuorokautinen päivystys kiireellisiin huolto- ja korjaustöihin. Soita, niin autamme heti."
+    },
+    "huoltosopimukset": {
+      "title": "Huoltosopimukset",
+      "description": "Räätälöidyt huoltosopimukset kiinteistöjen tarpeisiin. Säännöllinen huolto ehkäisee kalliita korjauksia."
+    },
+    "saaristo": {
+      "title": "Saaristopalvelut",
+      "description": "LVI-työt Espoon, Kirkkonummen ja Helsingin saaristossa. Kuljetamme materiaalit ja henkilöstön omalla veneellä."
+    },
+    "viewAll": "Katso kaikki palvelut"
+  },
+  "island": {
+    "sectionLabel": "Ainutlaatuinen palvelu",
+    "title": "Saariston LVI-palvelut",
+    "description": "Tarjoamme LVI-palveluja Espoon, Kirkkonummen ja Helsingin saaristossa kesäkaudella. Oma veneemme mahdollistaa materiaalien ja henkilöstön kuljetuksen suoraan kohteeseen — ilman ylimääräisiä logistiikkakustannuksia.",
+    "feature1": "Oma vene materiaalikul­jetuksiin",
+    "feature2": "Espoo, Kirkkonummi ja Helsinki",
+    "feature3": "Kesäkauden palvelut",
+    "cta": "Kysy lisää saaristopalveluista"
+  },
+  "references": {
+    "sectionLabel": "Referenssit",
+    "title": "Luotettavaa jälkeä vuodesta 2004",
+    "subtitle": "Yli 40 toteutettua projektia pääkaupunkiseudulla — linjasaneerauksista uudisrakentamiseen.",
+    "viewAll": "Katso kaikki referenssit",
+    "year": "Vuosi",
+    "project": "Kohde",
+    "type": "Tyyppi",
+    "client": "Asiakas",
+    "filterAll": "Kaikki",
+    "filterLinja": "Linjasaneeraukset",
+    "filterLampo": "Lämpöjohdot",
+    "filterVesi": "Käyttövesi",
+    "filterUrakka": "LVI-urakat"
+  },
+  "pricing": {
+    "sectionLabel": "Hinnasto",
+    "title": "Selkeä ja kilpailukykyinen hinnoittelu",
+    "hourlyRate": "Tuntiveloitus",
+    "exVat": "ALV 0%",
+    "inclVat": "ALV 25,5%",
+    "perHour": "/ tunti",
+    "minimumNote": "Minimilaskutus 2 tuntia + aluemaksu",
+    "areaFees": "Aluemaksut",
+    "city": "Alue",
+    "taxDeduction": "Kotitalousvähennys",
+    "taxDeductionText": "Asunnon kunnossapito- ja perusparannustyöstä voi saada kotitalousvähennystä enintään 2 400 euroa henkilöä kohden. Pariskunta voi saada vähennystä yhteensä enintään 4 800 euroa.",
+    "viewFull": "Katso koko hinnasto"
+  },
+  "cta": {
+    "title": "Tarvitsetko LVI-ammattilaista?",
+    "subtitle": "Ota yhteyttä — autamme mielellämme kaikissa LVI-asioissa.",
+    "callNow": "Soita nyt",
+    "requestQuote": "Kerro tarpeesi"
+  },
+  "contactPreview": {
+    "sectionLabel": "Yhteystiedot",
+    "title": "Ota yhteyttä",
+    "office": "Toimistomme sijaitsee Kirkkonummella. Suoritamme kuitenkin kaikki LVI-työmme ja muut palvelumme pääkaupunkiseudulla.",
+    "viewContact": "Yhteystiedot ja lomake"
+  },
+  "contact": {
+    "pageTitle": "Yhteystiedot",
+    "pageSubtitle": "Ota rohkeasti yhteyttä — autamme mielellämme!",
+    "formTitle": "Lähetä viesti",
+    "name": "Nimi",
+    "email": "Sähköposti",
+    "phone": "Puhelin",
+    "location": "Kohteen sijainti",
+    "address": "Osoite",
+    "message": "Viesti",
+    "messagePlaceholder": "Kuvaile tarpeesi...",
+    "submit": "Lähetä viesti",
+    "successTitle": "Viesti lähetetty!",
+    "successText": "Kiitos yhteydenotostasi. Palaamme asiaan mahdollisimman pian.",
+    "creditNote": "Laskutusasiakassuhteessa tarvitsemme täydellisen henkilö- tai Y-tunnuksen.",
+    "invoicing": "Laskutustiedot",
+    "invoicingText": "Vastaanotamme verkkolaskuja Maventa-operaattorin kautta. Verkkolaskujen OVT-tunnus on 003716525055.",
+    "paperInvoice": "Paperilaskut voi lähettää Kollektor Scan -osoitteeseen."
+  },
+  "servicesPage": {
+    "pageTitle": "Palvelumme",
+    "pageSubtitle": "Täyden palvelun putkiliike kaikenlaisiin LVI-tarpeisiin",
+    "coreTitle": "LVI-palvelut",
+    "coreDescription": "Tarjoamme kaikenlaiset LVI-alan työt pääkaupunkiseudulla. Pienet huoltotyöt ja vaativat talotekniikan projektit hoidetaan ammattitaidolla.",
+    "relatedTitle": "Oheispalvelut",
+    "relatedDescription": "LVI-töiden lisäksi tarjoamme laajan valikoiman oheispalveluja yhteistyökumppaneidemme kanssa.",
+    "related1": "Rakennus- ja purkutyöt",
+    "related2": "Maarakennustyöt",
+    "related3": "Sähkötyöt",
+    "related4": "Asbestikartoitus ja -purku",
+    "related5": "Kuivauspalvelut",
+    "emergencyTitle": "24h Hätähuolto",
+    "emergencyDescription": "Ympäri vuorokauden toimivasta hätähuollosta saat avun kiireellisiin huolto- ja korjaustöihin. Vesivahingot, putkivuodot, lämmitysongelmat — soita heti niin tulemme paikalle."
+  },
+  "pricingPage": {
+    "pageTitle": "Hinnasto",
+    "pageSubtitle": "Selkeä hinnoittelu ilman piilokustannuksia"
+  },
+  "referencesPage": {
+    "pageTitle": "Referenssit",
+    "pageSubtitle": "Yli 40 toteutettua projektia vuodesta 2004"
+  },
+  "partnersPage": {
+    "pageTitle": "Yhteistyökumppanit",
+    "pageSubtitle": "Luotettava verkosto takaa parhaan lopputuloksen",
+    "lvi": "LVI",
+    "sahko": "Sähkö",
+    "rakennus": "Rakennus",
+    "suunnittelu": "Suunnittelu"
+  },
+  "footer": {
+    "description": "Täyden palvelun putkiliike pääkaupunkiseudulla vuodesta 2001. Luotettava kumppani pienissä huoltotöissä ja vaativissa talotekniikan projekteissa.",
+    "quickLinks": "Sivusto",
+    "contactTitle": "Yhteystiedot",
+    "emergency": "Hätähuolto 24/7:",
+    "serviceAreas": "Palvelualueet",
+    "espoo": "Espoo",
+    "helsinki": "Helsinki",
+    "kirkkonummi": "Kirkkonummi",
+    "vantaa": "Vantaa",
+    "saaristo": "Saaristo",
+    "rights": "Kaikki oikeudet pidätetään.",
+    "businessId": "Y-tunnus"
+  },
+  "notFound": {
+    "title": "Sivua ei löytynyt",
+    "description": "Etsimääsi sivua ei löytynyt. Tarkista osoite tai palaa etusivulle.",
+    "backHome": "Takaisin etusivulle"
+  }
+}
