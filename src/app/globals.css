@@ -139,16 +139,18 @@ section[id] { scroll-margin-top: 72px; }
   min-height: 100svh;
 }
 
-/* Blueprint grid — faint engineering lines */
+/* Blueprint grid — dual-weight engineering lines */
 .hero-blueprint {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.025;
+  opacity: 0.04;
   background-image:
-    linear-gradient(rgba(200, 117, 51, 0.4) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200, 117, 51, 0.4) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(200, 117, 51, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 117, 51, 0.5) 1px, transparent 1px),
+    linear-gradient(rgba(200, 117, 51, 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 117, 51, 0.25) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 60px 60px, 60px 60px;
 }
 
 .hero-headline {
@@ -168,6 +170,17 @@ section[id] { scroll-margin-top: 72px; }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(200, 117, 51, 0.2));
+}
+
+/* Archipelago hub pulsing ring */
+@keyframes hubRing {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.hub-ring {
+  transform-origin: center;
+  animation: hubRing 2.5s ease-out infinite;
 }
 
 /* ============================
@@ -249,11 +262,13 @@ button, [role="button"] { cursor: pointer; }
   padding: 1.25rem 0.75rem;
   border-bottom: 1px solid rgba(0,0,0,0.08);
   border-radius: 8px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, padding-left 0.3s ease, border-color 0.3s ease;
 }
 
 .service-row:hover {
-  background-color: rgba(0,0,0,0.02);
+  background-color: rgba(200, 117, 51, 0.04);
+  padding-left: 1.25rem;
+  border-bottom-color: rgba(200, 117, 51, 0.15);
 }
 
 .service-row-arrow {

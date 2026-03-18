@@ -153,7 +153,7 @@ export default function ChatWidget() {
           aria-label="Chat — LVI Asentimo"
         >
           {/* Header */}
-          <div className="bg-dark px-4 py-3 flex items-center justify-between shrink-0">
+          <div className="bg-dark px-4 py-3 flex items-center justify-between shrink-0 border-b border-copper/20">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-copper flex items-center justify-center">
                 <span className="font-display font-bold text-dark text-sm">A</span>

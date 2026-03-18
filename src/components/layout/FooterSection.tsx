@@ -46,7 +46,13 @@ export default function FooterSection() {
         </div>
 
         {/* Copyright bar */}
-        <div className="pt-6 border-t border-dark-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+        <div
+          className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2"
+          style={{
+            borderTop: '1px solid transparent',
+            borderImage: 'linear-gradient(90deg, #C87533 0%, #1E3A4E 40%, #1E3A4E 100%) 1',
+          }}
+        >
           <p className="text-xs text-text-light-muted/50">
             &copy; {new Date().getFullYear()} {SITE.name}. {t("rights")}
           </p>
