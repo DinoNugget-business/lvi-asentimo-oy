@@ -139,6 +139,18 @@ section[id] { scroll-margin-top: 72px; }
   min-height: 100svh;
 }
 
+/* Blueprint grid — faint engineering lines */
+.hero-blueprint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image:
+    linear-gradient(rgba(200, 117, 51, 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 117, 51, 0.4) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
 .hero-headline {
   font-size: clamp(3.5rem, 9vw, 8rem);
   font-weight: 800;
@@ -233,29 +245,15 @@ button, [role="button"] { cursor: pointer; }
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: start;
-  gap: 1.5rem;
-  padding: 1.5rem 0;
+  gap: 1.25rem;
+  padding: 1.25rem 0.75rem;
   border-bottom: 1px solid rgba(0,0,0,0.08);
-  transition: padding-left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 
 .service-row:hover {
-  padding-left: 1rem;
-}
-
-.service-row-number {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 900;
-  color: var(--color-copper);
-  opacity: 0.15;
-  line-height: 1;
-  min-width: 3ch;
-  transition: opacity 0.3s ease;
-}
-
-.service-row:hover .service-row-number {
-  opacity: 1;
+  background-color: rgba(0,0,0,0.02);
 }
 
 .service-row-arrow {

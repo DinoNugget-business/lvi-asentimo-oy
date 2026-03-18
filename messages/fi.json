@@ -24,15 +24,13 @@
     "statEmergency": "päivystys",
     "emergency": "24h hätähuolto"
   },
-  "trust": {
-    "years": "25+",
-    "yearsLabel": "Vuotta kokemusta",
-    "refs": "40+",
-    "refsLabel": "Referenssikohdetta",
-    "emergency": "24/7",
-    "emergencyLabel": "Hätäpäivystys",
-    "areas": "4",
-    "areasLabel": "Palvelualuetta"
+  "socialProof": {
+    "yearsValue": "25+",
+    "yearsContext": "Vuotta kokemusta — toiminut vuodesta 2001 pääkaupunkiseudulla",
+    "refsValue": "40+",
+    "refsContext": "Toteutettua projektia taloyhtiöille, kiinteistöyhtiöille ja kunnille",
+    "emergencyValue": "24/7",
+    "emergencyContext": "Hätähuolto koko pääkaupunkiseudulla — vesivahingot, putkivuodot, lämmitysongelmat"
   },
   "services": {
     "sectionLabel": "Palvelumme",
@@ -62,6 +60,8 @@
       "title": "Saaristopalvelut",
       "description": "LVI-työt Espoon, Kirkkonummen ja Helsingin saaristossa. Kuljetamme materiaalit ja henkilöstön omalla veneellä."
     },
+    "coreGroupLabel": "Ydinpalvelut",
+    "specialGroupLabel": "Sopimukset & erityispalvelut",
     "viewAll": "Katso kaikki palvelut"
   },
   "island": {
@@ -71,6 +71,7 @@
     "feature1": "Oma vene materiaalikul­jetuksiin",
     "feature2": "Espoo, Kirkkonummi ja Helsinki",
     "feature3": "Kesäkauden palvelut",
+    "serviceAreas": "Palvelualueet: Espoo · Helsinki · Kirkkonummi · Vantaa · Saaristo",
     "cta": "Kysy lisää saaristopalveluista"
   },
   "references": {
@@ -99,20 +100,15 @@
     "areaFees": "Aluemaksut",
     "city": "Alue",
     "taxDeduction": "Kotitalousvähennys",
+    "taxDeductionShort": "jopa 2 400 €/hlö",
     "taxDeductionText": "Asunnon kunnossapito- ja perusparannustyöstä voi saada kotitalousvähennystä enintään 2 400 euroa henkilöä kohden. Pariskunta voi saada vähennystä yhteensä enintään 4 800 euroa.",
     "viewFull": "Katso koko hinnasto"
   },
-  "cta": {
-    "title": "Tarvitsetko LVI-ammattilaista?",
-    "subtitle": "Ota yhteyttä — autamme mielellämme kaikissa LVI-asioissa.",
-    "callNow": "Soita nyt",
-    "requestQuote": "Kerro tarpeesi"
-  },
   "contactPreview": {
     "sectionLabel": "Yhteystiedot",
-    "title": "Ota yhteyttä",
-    "office": "Toimistomme sijaitsee Kirkkonummella. Suoritamme kuitenkin kaikki LVI-työmme ja muut palvelumme pääkaupunkiseudulla.",
-    "viewContact": "Yhteystiedot ja lomake"
+    "title": "Tarvitsetko LVI-ammattilaista?",
+    "subtitle": "Ota yhteyttä — autamme mielellämme kaikissa LVI-asioissa. Toimistomme sijaitsee Kirkkonummella, mutta palvelemme koko pääkaupunkiseudulla.",
+    "viewContact": "Kerro tarpeesi"
   },
   "contact": {
     "pageTitle": "Yhteystiedot",
@@ -132,7 +128,8 @@
     "creditNote": "Laskutusasiakassuhteessa tarvitsemme täydellisen henkilö- tai Y-tunnuksen.",
     "invoicing": "Laskutustiedot",
     "invoicingText": "Vastaanotamme verkkolaskuja Maventa-operaattorin kautta. Verkkolaskujen OVT-tunnus on 003716525055.",
-    "paperInvoice": "Paperilaskut voi lähettää Kollektor Scan -osoitteeseen."
+    "paperInvoice": "Paperilaskut voi lähettää Kollektor Scan -osoitteeseen.",
+    "responseTime": "Vastaamme yleensä saman arkipäivän aikana."
   },
   "servicesPage": {
     "pageTitle": "Palvelumme",
@@ -151,7 +148,9 @@
   },
   "pricingPage": {
     "pageTitle": "Hinnasto",
-    "pageSubtitle": "Selkeä hinnoittelu ilman piilokustannuksia"
+    "pageSubtitle": "Selkeä hinnoittelu ilman piilokustannuksia",
+    "howItWorks": "Näin hinnoittelumme toimii",
+    "howItWorksText": "Veloitamme tuntiperusteisesti. Jokaiseen työkeikkaan lisätään kertaluonteinen aluemaksu kohteen sijainnin mukaan. Materiaalit laskutetaan erikseen hankintahintaan. Minimilaskutus on 2 tuntia."
   },
   "referencesPage": {
     "pageTitle": "Referenssit",
@@ -160,6 +159,7 @@
   "partnersPage": {
     "pageTitle": "Yhteistyökumppanit",
     "pageSubtitle": "Luotettava verkosto takaa parhaan lopputuloksen",
+    "intro": "Teemme yhteistyötä luotettujen ammattilaisten kanssa, jotta asiakkaamme saavat kokonaisvaltaisen remontti- ja huoltopalvelun — ei vain putkimiestä, vaan koko tiimin.",
     "lvi": "LVI",
     "sahko": "Sähkö",
     "rakennus": "Rakennus",

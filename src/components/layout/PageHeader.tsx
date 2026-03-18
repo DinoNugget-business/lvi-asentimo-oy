@@ -6,7 +6,7 @@ export default function PageHeader({
   subtitle?: string;
 }) {
   return (
-    <section className="bg-dark pt-28 pb-16 sm:pt-32 sm:pb-20">
+    <section className="bg-dark pt-32 pb-16 sm:pt-36 sm:pb-20">
       <div className="max-w-6xl mx-auto px-5">
         <h1 className="page-heading font-display text-4xl sm:text-5xl font-bold text-text-light tracking-tight">
           {title}
@@ -16,6 +16,8 @@ export default function PageHeader({
             {subtitle}
           </p>
         )}
+        {/* Decorative copper line */}
+        <div className="w-20 h-0.5 bg-copper mt-6 rounded-full page-subtitle" />
       </div>
     </section>
   );

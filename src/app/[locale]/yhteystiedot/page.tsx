@@ -24,6 +24,9 @@ export default async function YhteystiedotPage() {
             {/* Left: Contact form — 3 cols */}
             <div className="lg:col-span-3 animate-on-scroll">
               <ContactForm />
+              <p className="text-xs text-text-dim mt-4">
+                {t("responseTime")}
+              </p>
             </div>
 
             {/* Right: Contact info — 2 cols, typography-driven */}

@@ -70,10 +70,20 @@ export default function HeaderNav() {
       }`}
     >
       <div className="max-w-6xl mx-auto h-full px-5 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="shrink-0 font-display font-bold text-text-light text-xl tracking-tight" aria-label={t("homeLink")}>
-          LVI <span className="text-copper">ASENTIMO</span>
-        </Link>
+        {/* Logo + 24/7 badge */}
+        <div className="flex items-center gap-3">
+          <Link href="/" className="shrink-0 font-display font-bold text-text-light text-xl tracking-tight" aria-label={t("homeLink")}>
+            LVI <span className="text-copper">ASENTIMO</span>
+          </Link>
+          <a
+            href={CONTACT.phone2Href}
+            className="hidden md:inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emergency/15 text-emergency hover:bg-emergency/25 transition-colors"
+            title={`Hätähuolto: ${CONTACT.phone2}`}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-emergency emergency-pulse" />
+            24/7
+          </a>
+        </div>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6">
@@ -146,13 +156,6 @@ export default function HeaderNav() {
             >
               <Phone className="w-4 h-4" />
               {CONTACT.phone}
-            </a>
-            <a
-              href={CONTACT.phone2Href}
-              className="flex items-center gap-2 py-3 text-sm text-text-light-muted"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              24/7: {CONTACT.phone2}
             </a>
           </nav>
         </div>

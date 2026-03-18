@@ -11,7 +11,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative hero-min-h flex items-end overflow-hidden"
+      className="relative hero-min-h flex items-center overflow-hidden"
       style={{
         background: `
           radial-gradient(ellipse at 20% 80%, rgba(200, 117, 51, 0.12) 0%, transparent 55%),
@@ -20,8 +20,11 @@ export default function HeroSection() {
         `,
       }}
     >
+      {/* Blueprint grid overlay */}
+      <div className="hero-blueprint" aria-hidden="true" />
+
       {/* Content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 pb-16 pt-40 sm:pb-24 sm:pt-48">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 py-24 sm:py-32">
         {/* Category label */}
         <p className="hero-heading section-label mb-5">
           {t("category")}
@@ -38,17 +41,8 @@ export default function HeroSection() {
           {t("tagline")}
         </p>
 
-        {/* Trust stats */}
-        <div className="hero-subtext flex flex-wrap items-center gap-x-8 gap-y-3 mb-10">
-          <TrustStat value="25+" label={t("statYears")} />
-          <span className="hidden sm:block w-px h-8 bg-dark-border" />
-          <TrustStat value="40+" label={t("statRefs")} />
-          <span className="hidden sm:block w-px h-8 bg-dark-border" />
-          <TrustStat value="24/7" label={t("statEmergency")} accent />
-        </div>
-
         {/* CTA row */}
-        <div className="hero-ctas flex flex-col sm:flex-row gap-3 mb-8">
+        <div className="hero-ctas flex flex-col sm:flex-row gap-3 mb-10">
           <a
             href={CONTACT.phoneHref}
             onClick={addRipple}
@@ -67,33 +61,17 @@ export default function HeroSection() {
           </Link>
         </div>
 
-        {/* Emergency indicator */}
-        <a
-          href={CONTACT.phone2Href}
-          className="hero-emergency inline-flex items-center gap-3 text-sm group"
-        >
-          <span className="flex items-center justify-center w-8 h-8 rounded-full bg-emergency/15 emergency-pulse">
-            <Phone className="w-3.5 h-3.5 text-emergency" />
-          </span>
-          <span className="text-text-light-muted group-hover:text-text-light transition-colors">
-            {t("emergency")}{" "}
-            <span className="font-semibold text-emergency">{CONTACT.phone2}</span>
-          </span>
-        </a>
+        {/* Emergency — simple text, no icon box */}
+        <p className="hero-emergency text-sm text-text-light-muted">
+          {t("emergency")}{" "}
+          <a
+            href={CONTACT.phone2Href}
+            className="font-semibold text-emergency hover:text-emergency-dark transition-colors"
+          >
+            {CONTACT.phone2}
+          </a>
+        </p>
       </div>
     </section>
-  );
-}
-
-function TrustStat({ value, label, accent }: { value: string; label: string; accent?: boolean }) {
-  return (
-    <div className="flex flex-col">
-      <span className={`font-display text-3xl sm:text-4xl font-extrabold tracking-tight ${accent ? "text-emergency" : "stat-glow"}`}>
-        {value}
-      </span>
-      <span className="text-text-light-muted text-[11px] uppercase tracking-widest mt-0.5">
-        {label}
-      </span>
-    </div>
   );
 }

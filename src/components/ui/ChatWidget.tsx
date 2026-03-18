@@ -147,7 +147,7 @@ export default function ChatWidget() {
       {/* Chat panel */}
       {isOpen && (
         <div
-          className="chat-panel-enter chat-panel-safe fixed z-50 w-[380px] h-[520px] max-sm:inset-0 max-sm:w-full max-sm:h-full max-sm:bottom-0 max-sm:right-0 flex flex-col rounded-xl max-sm:rounded-none overflow-hidden shadow-2xl border border-dark-border"
+          className="chat-panel-enter chat-panel-safe fixed z-50 w-[380px] h-[520px] max-sm:inset-0 max-sm:w-full max-sm:h-full max-sm:bottom-0 max-sm:right-0 flex flex-col rounded-2xl max-sm:rounded-none overflow-hidden shadow-2xl shadow-black/20 border border-dark-border"
           role="dialog"
           aria-modal="true"
           aria-label="Chat — LVI Asentimo"
@@ -160,11 +160,11 @@ export default function ChatWidget() {
               </div>
               <div>
                 <p className="font-display font-bold text-text-light text-sm tracking-tight">
-                  Asentimo
+                  LVI Asentimo
                 </p>
-                <p className="text-[11px] text-text-light-muted flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
-                  Verkossa
+                <p className="text-[10px] text-text-light-muted flex items-center gap-1.5">
+                  <span className="px-1.5 py-px rounded bg-copper/15 text-copper font-semibold uppercase tracking-wider">Demo</span>
+                  Virtuaalinen avustaja
                 </p>
               </div>
             </div>

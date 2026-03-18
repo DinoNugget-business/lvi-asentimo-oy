@@ -1,9 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import PageHeader from "@/components/layout/PageHeader";
-import CtaBanner from "@/components/sections/CtaBanner";
 import FooterSection from "@/components/layout/FooterSection";
 import ScrollAnimator from "@/components/ui/ScrollAnimator";
 import { REFERENCES } from "@/lib/constants";
@@ -32,6 +31,21 @@ export default function ReferenssitPage() {
     return true;
   });
 
+  // Group filtered references by year
+  const grouped = useMemo(() => {
+    const map = new Map<number, typeof REFERENCES[number][]>();
+    for (const ref of filtered) {
+      const list = map.get(ref.year) || [];
+      list.push(ref);
+      map.set(ref.year, list);
+    }
+    return Array.from(map.entries()).sort((a, b) => b[0] - a[0]);
+  }, [filtered]);
+
+  const years = REFERENCES.map((r) => r.year);
+  const minYear = Math.min(...years);
+  const maxYear = Math.max(...years);
+
   return (
     <>
       <ScrollAnimator />
@@ -39,16 +53,21 @@ export default function ReferenssitPage() {
 
       <section className="bg-warm-white py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-5">
+          {/* Summary */}
+          <p className="text-sm text-text-muted mb-6 animate-on-scroll">
+            {REFERENCES.length} projektia vuosina {minYear}–{maxYear}
+          </p>
+
           {/* Filter pills */}
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex flex-wrap gap-2 mb-10">
             {filters.map((f) => (
               <button
                 key={f.key}
                 onClick={() => setFilter(f.key)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-colors ${
                   filter === f.key
                     ? "bg-copper text-dark"
-                    : "bg-surface text-text-muted hover:bg-surface-dark"
+                    : "border border-surface-dark text-text-muted hover:border-copper/40 hover:text-copper"
                 }`}
               >
                 {f.label}
@@ -56,39 +75,49 @@ export default function ReferenssitPage() {
             ))}
           </div>
 
-          {/* References table */}
-          <div className="rounded-xl overflow-hidden border border-surface-dark">
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-dark text-text-light">
-                    <th className="text-left py-3 px-5 font-semibold w-20">{t("year")}</th>
-                    <th className="text-left py-3 px-5 font-semibold">{t("project")}</th>
-                    <th className="text-left py-3 px-5 font-semibold hidden sm:table-cell">{t("type")}</th>
-                    <th className="text-left py-3 px-5 font-semibold hidden md:table-cell">{t("client")}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filtered.map((ref, i) => (
-                    <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-bg-light"}>
-                      <td className="py-3 px-5 font-display text-lg font-extrabold text-copper tracking-tight">{ref.year}</td>
-                      <td className="py-3 px-5 font-medium">{ref.project}</td>
-                      <td className="py-3 px-5 text-text-muted hidden sm:table-cell">{ref.type}</td>
-                      <td className="py-3 px-5 text-text-muted hidden md:table-cell">{ref.client}</td>
-                    </tr>
+          {/* Year-grouped references */}
+          <div className="space-y-8">
+            {grouped.map(([year, refs]) => (
+              <div key={year} className="animate-on-scroll">
+                <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-copper tracking-tight mb-3">
+                  {year}
+                </h3>
+                <div className="border-t border-surface-dark">
+                  {refs.map((ref, i) => (
+                    <div
+                      key={i}
+                      className={`flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0 py-3 ${
+                        i < refs.length - 1 ? "border-b border-surface-dark/50" : ""
+                      }`}
+                    >
+                      <span className="font-medium text-text flex-1">{ref.project}</span>
+                      <span className="text-sm text-text-muted sm:w-48">{ref.type}</span>
+                      <span className="text-sm text-text-dim sm:w-40 hidden md:block">{ref.client}</span>
+                    </div>
                   ))}
-                </tbody>
-              </table>
-            </div>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <p className="text-sm text-text-dim mt-4">
+          <p className="text-sm text-text-dim mt-8">
             {filtered.length} / {REFERENCES.length} projektia
           </p>
         </div>
       </section>
 
-      <CtaBanner />
+      {/* Simple CTA */}
+      <section className="bg-surface py-10 sm:py-14">
+        <div className="max-w-6xl mx-auto px-5 text-center">
+          <p className="text-text-muted">
+            Kiinnostavatko referenssimme?{" "}
+            <a href="tel:+358405765968" className="font-semibold text-copper hover:text-copper-dark transition-colors">
+              Pyydä tarjous
+            </a>
+          </p>
+        </div>
+      </section>
+
       <FooterSection />
     </>
   );

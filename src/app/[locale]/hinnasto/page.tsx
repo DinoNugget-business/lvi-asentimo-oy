@@ -1,9 +1,8 @@
 import { getTranslations } from "next-intl/server";
 import PageHeader from "@/components/layout/PageHeader";
-import CtaBanner from "@/components/sections/CtaBanner";
 import FooterSection from "@/components/layout/FooterSection";
 import ScrollAnimator from "@/components/ui/ScrollAnimator";
-import { PRICING, AREA_FEES } from "@/lib/constants";
+import { PRICING, AREA_FEES, CONTACT } from "@/lib/constants";
 
 export async function generateMetadata() {
   const t = await getTranslations("pricingPage");
@@ -21,7 +20,27 @@ export default async function HinnastoPage() {
 
       <section className="bg-warm-white py-16 sm:py-24">
         <div className="max-w-4xl mx-auto px-5">
-          {/* Main pricing — no card wrapper */}
+          {/* How pricing works */}
+          <div className="animate-on-scroll mb-12">
+            <h2 className="font-display text-xl font-semibold text-text mb-4">
+              {t("howItWorks")}
+            </h2>
+            <p className="text-sm text-text-muted leading-relaxed">
+              {t("howItWorksText")}
+            </p>
+          </div>
+
+          {/* Tax deduction callout — moved above area fees */}
+          <div className="animate-on-scroll accent-bar bg-copper/5 rounded-r-xl p-6 mb-12">
+            <h3 className="font-display text-lg font-semibold text-text mb-2">
+              {tp("taxDeduction")}
+            </h3>
+            <p className="text-sm text-text-muted leading-relaxed">
+              {tp("taxDeductionText")}
+            </p>
+          </div>
+
+          {/* Main pricing */}
           <div className="animate-on-scroll mb-12">
             <h2 className="font-display text-xl font-semibold text-text mb-6">
               {tp("hourlyRate")}
@@ -84,20 +103,21 @@ export default async function HinnastoPage() {
               </table>
             </div>
           </div>
-
-          {/* Tax deduction callout */}
-          <div className="animate-on-scroll accent-bar bg-copper/5 rounded-r-xl p-6">
-            <h3 className="font-display text-lg font-semibold text-text mb-2">
-              {tp("taxDeduction")}
-            </h3>
-            <p className="text-sm text-text-muted leading-relaxed">
-              {tp("taxDeductionText")}
-            </p>
-          </div>
         </div>
       </section>
 
-      <CtaBanner />
+      {/* Simple CTA */}
+      <section className="bg-surface py-10 sm:py-14">
+        <div className="max-w-6xl mx-auto px-5 text-center">
+          <p className="text-text-muted">
+            Haluatko tarjouksen?{" "}
+            <a href={CONTACT.phoneHref} className="font-semibold text-copper hover:text-copper-dark transition-colors">
+              Soita {CONTACT.phone}
+            </a>
+          </p>
+        </div>
+      </section>
+
       <FooterSection />
     </>
   );
